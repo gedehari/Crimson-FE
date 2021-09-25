@@ -1,0 +1,8 @@
+# VS Code configuration
+.vscode/
+
+# Lime build directory
+export/
+
+# Sphinx build directory (for Read The Docs)
+docs/_build
