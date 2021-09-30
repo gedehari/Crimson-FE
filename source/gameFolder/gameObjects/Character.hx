@@ -101,6 +101,17 @@ class Character extends FNFSprite
 
 				flipX = true;
 
+            case 'crimsoncrips':
+				// CRIMSONCRIPS	ANIMATION LOADING CODE
+				tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST');
+				frames = tex;
+				animation.addByPrefix('idle', 'crimsoncrips idle dance', 24, false);
+				animation.addByPrefix('singUP', 'crimsoncrips  Sing Note UP', 24);
+				animation.addByPrefix('singRIGHT', 'crimsoncrips  Sing Note RIGHT', 24);
+				animation.addByPrefix('singDOWN', 'crimsoncrips  Sing Note DOWN', 24);
+				animation.addByPrefix('singLEFT', 'crimsoncrips  Sing Note LEFT', 24);
+
+				playAnim('idle');
 			default:
 				// set up animations if they aren't already
 
