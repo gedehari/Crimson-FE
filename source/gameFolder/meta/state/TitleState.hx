@@ -292,13 +292,13 @@ class TitleState extends MusicBeatState
 
 			// credTextShit.visible = true;
 			case 3:
-				addMoreText('Hello Artox');
+				addMoreText('Hello');
 			// credTextShit.text += '\npresent...';
 			// credTextShit.addText();
 			case 4:
 				deleteCoolText();
 			// credTextShit.visible = false;
-			// credTextShit.text = 'Electro REq';
+			// credTextShit.text = 'Testing';
 			// credTextShit.screenCenter();
 			case 5:
 				createCoolText(['In association', 'with']);
