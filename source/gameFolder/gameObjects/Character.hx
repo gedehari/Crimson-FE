@@ -103,7 +103,7 @@ class Character extends FNFSprite
 
             case 'crimsoncrips':
 				// CRIMSONCRIPS	ANIMATION LOADING CODE
-				tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST');
+				tex = Paths.getSparrowAtlas('characters/CRIMSONCRIPS');
 				frames = tex;
 				animation.addByPrefix('idle', 'crimsoncrips idle dance', 24, false);
 				animation.addByPrefix('singUP', 'crimsoncrips  Sing Note UP', 24);
