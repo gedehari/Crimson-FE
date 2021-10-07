@@ -67,7 +67,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				// add to the final array
 				add(bg); 
 				
-				var stagevines1:FNFSprite = new FNFSprite(-800, -600).loadGraphic(Paths.image('backgrounds/' + curStage + '/stagevines1'));
+				var stagevines1:FNFSprite = new FNFSprite(-1000, -600).loadGraphic(Paths.image('backgrounds/' + curStage + '/stagevines1'));
 				stagevines1.setGraphicSize(Std.int(stagevines1.width * 1.1));
 				stagevines1.updateHitbox();
 				stagevines1.antialiasing = (!Init.trueSettings.get('Disable Antialiasing'));
@@ -77,7 +77,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				// add to the final array
 				add(stagevines1);
 				
-				var stagevines2:FNFSprite = new FNFSprite(-800, -600).loadGraphic(Paths.image('backgrounds/' + curStage + '/stagevines2'));
+				var stagevines2:FNFSprite = new FNFSprite(-1000, -600).loadGraphic(Paths.image('backgrounds/' + curStage + '/stagevines2'));
 				stagevines2.setGraphicSize(Std.int(stagevines2.width * 1.1));
 				stagevines2.updateHitbox();
 				stagevines2.antialiasing = (!Init.trueSettings.get('Disable Antialiasing'));
