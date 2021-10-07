@@ -56,35 +56,47 @@ class Stage extends FlxTypedGroup<FlxBasic>
 		switch (curStage)
 		{
 			default:
-				PlayState.defaultCamZoom = 0.9;
+
+				PlayState.defaultCamZoom = 0.5;
 				curStage = 'stage';
-				var bg:FNFSprite = new FNFSprite(-600, -200).loadGraphic(Paths.image('backgrounds/' + curStage + '/stageback'));
+				
+				var bg:FNFSprite = new FNFSprite(-800, -300).loadGraphic(Paths.image('backgrounds/' + curStage + '/stageback'));
 				bg.antialiasing = (!Init.trueSettings.get('Disable Antialiasing'));
-				bg.scrollFactor.set(0.9, 0.9);
 				bg.active = false;
 
 				// add to the final array
-				add(bg);
+				add(bg); 
+				
+				var stagevines1:FNFSprite = new FNFSprite(-800, -600).loadGraphic(Paths.image('backgrounds/' + curStage + '/stagevines1'));
+				stagevines1.setGraphicSize(Std.int(stagevines1.width * 1.1));
+				stagevines1.updateHitbox();
+				stagevines1.antialiasing = (!Init.trueSettings.get('Disable Antialiasing'));
+				stagevines1.scrollFactor.set(1.8, 1.8);
+				stagevines1.active = false;
 
-				var stageFront:FNFSprite = new FNFSprite(-650, 600).loadGraphic(Paths.image('backgrounds/' + curStage + '/stagefront'));
+				// add to the final array
+				add(stagevines1);
+				
+				var stagevines2:FNFSprite = new FNFSprite(-800, -600).loadGraphic(Paths.image('backgrounds/' + curStage + '/stagevines2'));
+				stagevines2.setGraphicSize(Std.int(stagevines2.width * 1.1));
+				stagevines2.updateHitbox();
+				stagevines2.antialiasing = (!Init.trueSettings.get('Disable Antialiasing'));
+				stagevines2.scrollFactor.set(1.8, 1.8);
+				stagevines2.active = false;
+
+				// add to the final array
+				add(stagevines2);
+				
+
+				var stageFront:FNFSprite = new FNFSprite(-1000, -700).loadGraphic(Paths.image('backgrounds/' + curStage + '/stagefront'));
 				stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
 				stageFront.updateHitbox();
 				stageFront.antialiasing = (!Init.trueSettings.get('Disable Antialiasing'));
-				stageFront.scrollFactor.set(0.9, 0.9);
-				stageFront.active = false;
+				stageFront.active = true;
 
 				// add to the final array
 				add(stageFront);
-
-				var stageCurtains:FNFSprite = new FNFSprite(-500, -300).loadGraphic(Paths.image('backgrounds/' + curStage + '/stagecurtains'));
-				stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-				stageCurtains.updateHitbox();
-				stageCurtains.antialiasing = (!Init.trueSettings.get('Disable Antialiasing'));
-				stageCurtains.scrollFactor.set(1.3, 1.3);
-				stageCurtains.active = false;
-
-				// add to the final array
-				add(stageCurtains);
+				
 		}
 	}
 

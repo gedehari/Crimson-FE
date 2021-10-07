@@ -106,10 +106,10 @@ class Character extends FNFSprite
 				tex = Paths.getSparrowAtlas('characters/CRIMSONCRIPS');
 				frames = tex;
 				animation.addByPrefix('idle', 'crimsoncrips idle dance', 24, false);
-				animation.addByPrefix('singUP', 'crimsoncrips  Sing Note UP', 24);
-				animation.addByPrefix('singRIGHT', 'crimsoncrips  Sing Note RIGHT', 24);
-				animation.addByPrefix('singDOWN', 'crimsoncrips  Sing Note DOWN', 24);
-				animation.addByPrefix('singLEFT', 'crimsoncrips  Sing Note LEFT', 24);
+				animation.addByPrefix('singUP', 'crimsoncrips NOTE UP', 24);
+				animation.addByPrefix('singRIGHT', 'crimsoncrips NOTE RIGHT', 24);
+				animation.addByPrefix('singDOWN', 'crimsoncrips NOTE DOWN', 24);
+				animation.addByPrefix('singLEFT', 'crimsoncrips NOTE LEFT', 24);
 
 				playAnim('idle');
 			default:

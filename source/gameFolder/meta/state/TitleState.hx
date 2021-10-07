@@ -292,16 +292,12 @@ class TitleState extends MusicBeatState
 
 			// credTextShit.visible = true;
 			case 3:
-				addMoreText('Hello');
-			// credTextShit.text += '\npresent...';
-			// credTextShit.addText();
-			case 4:
-				deleteCoolText();
-			// credTextShit.visible = false;
-			// credTextShit.text = 'Testing';
-			// credTextShit.screenCenter();
+				addMoreText('Test');
 			case 5:
-				createCoolText(['In association', 'with']);
+			    addMoreText(':smh');
+			case 6:
+	            deleteCoolText();
+				ngSpr.visible = false;
 			case 7:
 				addMoreText('newgrounds');
 				ngSpr.visible = true;
