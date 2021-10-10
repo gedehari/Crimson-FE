@@ -162,7 +162,7 @@ class StoryMenuState extends MusicBeatState
 		sprDifficulty.frames = ui_tex;
 		for (i in CoolUtil.difficultyArray)
 			sprDifficulty.animation.addByPrefix(i.toLowerCase(), i.toUpperCase());
-		sprDifficulty.animation.play('easy');
+		sprDifficulty.animation.play('normal');
 		changeDifficulty();
 
 		difficultySelectors.add(sprDifficulty);

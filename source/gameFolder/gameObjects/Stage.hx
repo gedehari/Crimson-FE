@@ -60,7 +60,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				PlayState.defaultCamZoom = 0.5;
 				curStage = 'stage';
 				
-				var bg:FNFSprite = new FNFSprite(-800, -300).loadGraphic(Paths.image('backgrounds/' + curStage + '/stageback'));
+				var bg:FNFSprite = new FNFSprite(-1000, -300).loadGraphic(Paths.image('backgrounds/' + curStage + '/stageback'));
 				bg.antialiasing = (!Init.trueSettings.get('Disable Antialiasing'));
 				bg.active = false;
 
@@ -81,7 +81,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				stagevines2.setGraphicSize(Std.int(stagevines2.width * 1.1));
 				stagevines2.updateHitbox();
 				stagevines2.antialiasing = (!Init.trueSettings.get('Disable Antialiasing'));
-				stagevines2.scrollFactor.set(1.8, 1.8);
+				stagevines2.scrollFactor.set(1, 1);
 				stagevines2.active = false;
 
 				// add to the final array
@@ -137,6 +137,8 @@ class Stage extends FlxTypedGroup<FlxBasic>
 
 			case "spooky":
 				dad.y += 200;
+			case "crimsoncrips":
+				dad.x += -100;	
 			case "monster":
 				dad.y += 100;
 			case 'monster-christmas':
@@ -171,10 +173,11 @@ class Stage extends FlxTypedGroup<FlxBasic>
 		// REPOSITIONING PER STAGE
 		switch (curStage)
 		{
-			case 'highway':
+			case 'default':
 				boyfriend.y -= 220;
-				boyfriend.x += 260;
-
+				boyfriend.x += -600;
+                gf.x += 500;
+				gf.y += 300;
 			// resetFastCar();
 			// add(fastCar);
 

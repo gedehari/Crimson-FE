@@ -87,16 +87,10 @@ class Main extends Sprite
 	**/
 	public static var gameWeeks:Array<Dynamic> = [
 		[
-			['Tutorial'],
-			['gf'],
-			[FlxColor.fromRGB(129, 100, 223)],
-			'Funky Beginnings'
-		],
-		[
-			['Bopeebo'],
+			['the spread'],
 			['dad', 'dad', 'dad'],
 			[FlxColor.fromRGB(129, 100, 223)],
-			'vs. DADDY DEAREST'
+			'vs. Crimson Crips'
 		]
 	];
 
