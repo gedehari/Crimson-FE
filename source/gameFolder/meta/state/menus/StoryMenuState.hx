@@ -151,7 +151,7 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 124");
 
-		leftArrow = new FlxSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10);
+		leftArrow = new FlxSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + -50, grpWeekText.members[0].y + 10);
 		leftArrow.frames = ui_tex;
 		leftArrow.animation.addByPrefix('idle', "arrow left");
 		leftArrow.animation.addByPrefix('press', "arrow push left");
@@ -167,7 +167,7 @@ class StoryMenuState extends MusicBeatState
 
 		difficultySelectors.add(sprDifficulty);
 
-		rightArrow = new FlxSprite(sprDifficulty.x + sprDifficulty.width + 50, leftArrow.y);
+		rightArrow = new FlxSprite(sprDifficulty.x + sprDifficulty.width + -10, leftArrow.y);
 		rightArrow.frames = ui_tex;
 		rightArrow.animation.addByPrefix('idle', 'arrow right');
 		rightArrow.animation.addByPrefix('press', "arrow push right", 24, false);
@@ -304,11 +304,14 @@ class StoryMenuState extends MusicBeatState
 		switch (curDifficulty)
 		{
 			case 0:
-				sprDifficulty.offset.x = 20;
+				sprDifficulty.offset.x = 50;
+				sprDifficulty.offset.y = 9;
 			case 1:
-				sprDifficulty.offset.x = 70;
+				sprDifficulty.offset.x = 45;
+				sprDifficulty.offset.y = 11;
 			case 2:
-				sprDifficulty.offset.x = 20;
+				sprDifficulty.offset.x = 65;
+				sprDifficulty.offset.y = 18;
 		}
 
 		sprDifficulty.alpha = 0;

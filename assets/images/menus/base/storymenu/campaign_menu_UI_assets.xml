@@ -2,7 +2,7 @@
 <TextureAtlas imagePath="campaign_menu_UI_assets.png">
 	<!-- Created with Adobe Animate version 20.0.0.17400 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="NORMAL00000" x="0" y="0" width="196" height="65"/>
+	<SubTexture name="NORMAL0000" x="0" y="0" width="310" height="68"/>
 	<SubTexture name="CORRUPT0000" x="194" y="73" width="379" height="90"/>
 	<SubTexture name="HARD0000" x="427" y="0" width="308" height="67"/>
 	<SubTexture name="WEEK1 select0000" x="0" y="77" width="360" height="89"/>

@@ -4344,10 +4344,10 @@
     ],
     "bpm": 140,
     "sections": 1,
-    "needsVoices": false,
+    "needsVoices": true,
     "player1": "bf",
     "player2": "crimsoncrips",
-    "speed": 2,
+    "speed": 2.2,
     "song": "the spread",
     "sectionLengths": [],
     "validScore": true
