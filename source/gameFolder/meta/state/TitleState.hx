@@ -292,9 +292,9 @@ class TitleState extends MusicBeatState
 
 			// credTextShit.visible = true;
 			case 3:
-				addMoreText('Test');
+				addMoreText('Crimson Mod');
 			case 5:
-			    addMoreText(':smh');
+			    addMoreText('real');
 			case 6:
 	            deleteCoolText();
 				ngSpr.visible = false;
