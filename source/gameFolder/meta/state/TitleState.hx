@@ -69,7 +69,7 @@ class TitleState extends MusicBeatState
 		{
 			///*
 			#if !html5
-			Discord.changePresence('TITLE SCREEN', 'Main Menu');
+			Discord.changePresence('VS PA Mod', 'Main Menu');
 			#end
 
 			var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);
@@ -96,7 +96,7 @@ class TitleState extends MusicBeatState
 		// bg.updateHitbox();
 		add(bg);
 
-		logoBl = new FlxSprite(200, -50);
+		logoBl = new FlxSprite(270, -50);
 		logoBl.frames = Paths.getSparrowAtlas('menus/base/title/logoBumpin');
 		logoBl.antialiasing = (!Init.trueSettings.get('Disable Antialiasing'));
 		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
@@ -138,10 +138,10 @@ class TitleState extends MusicBeatState
 
 		credTextShit.visible = false;
 
-		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('menus/base/title/newgrounds_logo'));
+		ngSpr = new FlxSprite(0, FlxG.height * 0.38).loadGraphic(Paths.image('menus/base/title/newgrounds_logo'));
 		add(ngSpr);
 		ngSpr.visible = false;
-		ngSpr.setGraphicSize(Std.int(ngSpr.width * 0.8));
+		ngSpr.setGraphicSize(Std.int(ngSpr.width * 0.5));
 		ngSpr.updateHitbox();
 		ngSpr.screenCenter(X);
 		ngSpr.antialiasing = (!Init.trueSettings.get('Disable Antialiasing'));
@@ -287,10 +287,7 @@ class TitleState extends MusicBeatState
 
 		switch (curBeat)
 		{
-			case 1:
-				createCoolText(['ninjamuffin', 'phantomArcade', 'kawaisprite', 'evilsker']);
 
-			// credTextShit.visible = true;
 			case 3:
 				addMoreText('Crimson Mod');
 			case 5:
@@ -299,20 +296,17 @@ class TitleState extends MusicBeatState
 	            deleteCoolText();
 				ngSpr.visible = false;
 			case 7:
-				addMoreText('newgrounds');
+				addMoreText('Lulu Art');
 				ngSpr.visible = true;
 			// credTextShit.text += '\nNewgrounds';
 
-			case 8:
-				deleteCoolText();
+			case 9:
+			deleteCoolText();
 				ngSpr.visible = false;
 			// credTextShit.visible = false;
 
 			// credTextShit.text = '';
 			// credTextShit.screenCenter();
-			case 9:
-				createCoolText([curWacky[0]]);
-			// credTextShit.visible = true;
 			case 12:
 				deleteCoolText();
 			// credTextShit.visible = false;

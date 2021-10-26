@@ -71,7 +71,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				stagevines1.setGraphicSize(Std.int(stagevines1.width * 1.1));
 				stagevines1.updateHitbox();
 				stagevines1.antialiasing = (!Init.trueSettings.get('Disable Antialiasing'));
-				stagevines1.scrollFactor.set(1.8, 1.8);
+				stagevines1.scrollFactor.set(1.3, 1.3);
 				stagevines1.active = false;
 
 				// add to the final array
@@ -81,7 +81,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				stagevines2.setGraphicSize(Std.int(stagevines2.width * 1.1));
 				stagevines2.updateHitbox();
 				stagevines2.antialiasing = (!Init.trueSettings.get('Disable Antialiasing'));
-				stagevines2.scrollFactor.set(1, 1);
+				stagevines2.scrollFactor.set(0.6, 0.6);
 				stagevines2.active = false;
 
 				// add to the final array
@@ -139,6 +139,7 @@ class Stage extends FlxTypedGroup<FlxBasic>
 				dad.y += 200;
 			case "crimsoncrips":
 				dad.x += -100;	
+				dad.y += -100;
 			case "monster":
 				dad.y += 100;
 			case 'monster-christmas':

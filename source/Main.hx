@@ -91,7 +91,7 @@ class Main extends Sprite
 			['dad', 'dad', 'dad'],
 			[FlxColor.fromRGB(129, 100, 223)],
 			'vs. Crimson Crips'
-		]
+		],
 	];
 
 	// most of these variables are just from the base game!

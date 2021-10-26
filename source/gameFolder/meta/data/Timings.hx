@@ -26,9 +26,9 @@ class Timings
 	public static var msThreshold:Float = 0;
 
 	// set the score judgements for later use
-	public static var scoreRating:Map<String, Int> = ["s" => 90, "a" => 80, "b" => 70, "c" => 50, "d" => 40, "e" => 20, "f" => 0,];
+	public static var scoreRating:Map<String, Int> = ["S" => 90, "A" => 80, "B" => 50, "C" => 30, "D" => 20, "You just gave up?" => 0,];
 
-	public static var ratingFinal:String = "f";
+	public static var ratingFinal:String = "?";
 	public static var notesHit:Int = 0;
 
 	public static var comboDisplay:String = '';
@@ -88,15 +88,15 @@ class Timings
 		// update combo display
 		// if you dont understand this look up ternary operators, they're REALLY useful for condensing code and
 		// I would totally encourage you check them out and learn a little more
-		comboDisplay = ((PlayState.combo >= notesHitNoSus) ? ((trueAccuracy >= 100) ? ' [PERFECT]' : ' [FC]') : '');
+		comboDisplay = ((PlayState.combo >= notesHitNoSus) ? ((trueAccuracy >= 100) ? ' [Perfection!]' : ' [Full Combo!]') : '');
 
 		// to break it down further
 		/*
 			if (PlayState.combo >= notesHitNoSus) {
 				if (trueAccuracy >= 100)
-					comboDisplay = ' [PERFECT]';
+					comboDisplay = ' [Perfection!]';
 				else
-					comboDisplay = ' [FC]';
+					comboDisplay = ' [Full Combo!]';
 			} else
 				comboDisplay = '';
 		 */
