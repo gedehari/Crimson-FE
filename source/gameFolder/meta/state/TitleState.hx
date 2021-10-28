@@ -69,7 +69,7 @@ class TitleState extends MusicBeatState
 		{
 			///*
 			#if !html5
-			Discord.changePresence('VS PA Mod', 'Main Menu');
+			Discord.changePresence('TITLE SCREEN', 'Main Menu');
 			#end
 
 			var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);
