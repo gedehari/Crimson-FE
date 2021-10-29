@@ -134,6 +134,8 @@ class PlayState extends MusicBeatState
 	public static var strumLines:FlxTypedGroup<Strumline>;
 	public static var strumHUD:Array<FlxCamera> = [];
 
+	var inDialogue:Bool = false;
+
 	// at the beginning of the playstate
 	override public function create()
 	{
@@ -279,7 +281,6 @@ class PlayState extends MusicBeatState
 		FlxG.worldBounds.set(0, 0, FlxG.width, FlxG.height);
 
 		// initialize ui elements
-		startingSong = true;
 		startedCountdown = true;
 
 		//
@@ -317,6 +318,10 @@ class PlayState extends MusicBeatState
 			songIntroCutscene();
 		else
 			startCountdown();
+
+		trace("OKAY SO..");
+		trace(startingSong);
+		trace(songMusic.playing);
 	}
 
 	var staticDisplace:Int = 0;
@@ -333,29 +338,32 @@ class PlayState extends MusicBeatState
 			health = 2;
 
 		// pause the game if the game is allowed to pause and enter is pressed
-		if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
+		if (!inDialogue)
 		{
-			// update drawing stuffs
-			persistentUpdate = false;
-			persistentDraw = true;
-			paused = true;
-
-			// open pause substate
-			openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
-			updateRPC(true);
-		}
-
-		// make sure you're not cheating lol
-		if (!isStoryMode)
-		{
-			// charting state (more on that later)
-			if ((FlxG.keys.justPressed.SEVEN) && (!startingSong))
+			if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
 			{
-				resetMusic();
-				if (Init.trueSettings.get('Use Forever Chart Editor'))
-					Main.switchState(this, new ChartingState());
-				else
-					Main.switchState(this, new OriginalChartingState());
+				// update drawing stuffs
+				persistentUpdate = false;
+				persistentDraw = true;
+				paused = true;
+
+				// open pause substate
+				openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
+				updateRPC(true);
+			}
+
+			// make sure you're not cheating lol
+			if (!isStoryMode)
+			{
+				// charting state (more on that later)
+				if ((FlxG.keys.justPressed.SEVEN) && (!startingSong))
+				{
+					resetMusic();
+					if (Init.trueSettings.get('Use Forever Chart Editor'))
+						Main.switchState(this, new ChartingState());
+					else
+						Main.switchState(this, new OriginalChartingState());
+				}
 			}
 		}
 
@@ -363,7 +371,7 @@ class PlayState extends MusicBeatState
 		if (startingSong)
 		{
 			if (startedCountdown)
-			{
+			{	
 				Conductor.songPosition += elapsed * 1000;
 				if (Conductor.songPosition >= 0)
 					startSong();
@@ -372,7 +380,8 @@ class PlayState extends MusicBeatState
 		else
 		{
 			// Conductor.songPosition = FlxG.sound.music.time;
-			Conductor.songPosition += elapsed * 1000;
+			if (songMusic.playing)
+				Conductor.songPosition += elapsed * 1000;
 
 			if (!paused)
 			{
@@ -495,7 +504,8 @@ class PlayState extends MusicBeatState
 			unspawnNotes.splice(unspawnNotes.indexOf(dunceNote), 1);
 		}
 
-		noteCalls();
+		if (startingSong)
+			noteCalls();
 	}
 
 	function noteCalls()
@@ -1201,7 +1211,6 @@ class PlayState extends MusicBeatState
 	{
 		vocals.pause();
 
-		songMusic.play();
 		Conductor.songPosition = songMusic.time;
 		vocals.time = Conductor.songPosition;
 		vocals.play();
@@ -1211,9 +1220,12 @@ class PlayState extends MusicBeatState
 	{
 		super.stepHit();
 		///*
-		if (songMusic.time > Conductor.songPosition + 20 || songMusic.time < Conductor.songPosition - 20)
+		if (songMusic.playing)
 		{
-			resyncVocals();
+			if (songMusic.time > Conductor.songPosition + 20 || songMusic.time < Conductor.songPosition - 20)
+			{
+				resyncVocals();
+			}
 		}
 		//*/
 	}
@@ -1405,49 +1417,29 @@ class PlayState extends MusicBeatState
 	{
 		switch (curSong.toLowerCase())
 		{
-			case "winter-horrorland":
-				var blackScreen:FlxSprite = new FlxSprite(0, 0).makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
-				add(blackScreen);
-				blackScreen.scrollFactor.set();
-				camHUD.visible = false;
-
-				new FlxTimer().start(0.1, function(tmr:FlxTimer)
-				{
-					remove(blackScreen);
-					FlxG.sound.play(Paths.sound('Lights_Turn_On'));
-					camFollow.y = -2050;
-					camFollow.x += 200;
-					FlxG.camera.focusOn(camFollow.getPosition());
-					FlxG.camera.zoom = 1.5;
-
-					new FlxTimer().start(0.8, function(tmr:FlxTimer)
-					{
-						camHUD.visible = true;
-						remove(blackScreen);
-						FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 2.5, {
-							ease: FlxEase.quadInOut,
-							onComplete: function(twn:FlxTween)
-							{
-								startCountdown();
-							}
-						});
-					});
-				});
-			case 'roses':
-				FlxG.sound.play(Paths.sound('ANGRY'));
-			// schoolIntro(doof);
 			default:
-				if (sys.FileSystem.exists(Paths.txt(SONG.song.toLowerCase() + '/' + SONG.song.toLowerCase() + 'Dialogue')))
+				var dialoguePath:String = Paths.txt("songs/" + SONG.song.toLowerCase() + '/' + SONG.song.toLowerCase() + 'Dialogue');
+				trace(dialoguePath);
+			
+				if (sys.FileSystem.exists(dialoguePath))
 				{
+					trace("EXISTS!");
+					
 					var dialogueBox:DialogueBox;
-					dialogueBox = DialogueBox.createDialogue(CoolUtil.coolTextFile(Paths.txt(SONG.song.toLowerCase() + '/' + SONG.song.toLowerCase()
-						+ 'Dialogue')));
+					dialogueBox = new DialogueBox(true, CoolUtil.coolTextFile(dialoguePath));
+					dialogueBox.finishThing = function() {startCountdown(); inDialogue = false; startingSong = true;};
 					dialogueBox.cameras = [camHUD];
+
+					add(dialogueBox);
+
+					inDialogue = true;
 				}
 				else
+				{
+					startingSong = true;
 					startCountdown();
+				}
 		}
-		//
 	}
 
 	public static var swagCounter:Int = 0;
