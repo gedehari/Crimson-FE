@@ -10,7 +10,8 @@ class MenuCharacter extends FlxSprite
 	var curCharacterMap:Map<String, Array<Dynamic>> = [
 		// the format is currently
 		// name of character => id in atlas, fps, loop, scale, offsetx, offsety
-		'bf' => ["bf", 24, true, 0.9, 0, 0],
+		'bf' => ["bf", 1, false, 1, 0, 0],
+		'bfConfirm' => ['bfConfirm', 24, false, 0.9, 100, 100],
 	];
 
 	var baseX:Float = 0;
@@ -19,7 +20,10 @@ class MenuCharacter extends FlxSprite
 	public function new(x:Float, newCharacter:String = 'bf')
 	{
 		super(x);
-		y += 200;
+		y += -230;
+		
+		super(y);
+		x += 0;
 
 		baseX = x;
 		baseY = y;

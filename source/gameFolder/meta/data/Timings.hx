@@ -26,7 +26,7 @@ class Timings
 	public static var msThreshold:Float = 0;
 
 	// set the score judgements for later use
-	public static var scoreRating:Map<String, Int> = ["S" => 90, "A" => 80, "B" => 50, "C" => 30, "D" => 20, "You just gave up?" => 0,];
+	public static var scoreRating:Map<String, Int> = ["S" => 90, "A" => 80,"B" => 50, "C" => 30, "D" => 20, "You just gave up?" => 0,];
 
 	public static var ratingFinal:String = "?";
 	public static var notesHit:Int = 0;
