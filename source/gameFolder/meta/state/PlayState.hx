@@ -1255,14 +1255,6 @@ class PlayState extends MusicBeatState
 				hud.zoom += 0.05;
 		}
 	    
-		if (curSong == 'the spread') 
-             {
-	           switch (curBeat)
-	            {
-		          case number1:
-		            FlxG.camera.position(0.05, 0.05);
- 	                          }
-}
 		uiHUD.beatHit();
 
 		//
