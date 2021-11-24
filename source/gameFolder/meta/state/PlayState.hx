@@ -317,7 +317,10 @@ class PlayState extends MusicBeatState
 		if (isStoryMode)
 			songIntroCutscene();
 		else
+		{
+			startingSong = true;
 			startCountdown();
+		}
 
 		trace("OKAY SO..");
 		trace(startingSong);
@@ -1139,7 +1142,7 @@ class PlayState extends MusicBeatState
 
 	function startSong():Void
 	{
-		startingSong = false;
+		//startingSong = false;
 
 		previousFrameTime = FlxG.game.ticks;
 		lastReportedPlayheadPosition = 0;
