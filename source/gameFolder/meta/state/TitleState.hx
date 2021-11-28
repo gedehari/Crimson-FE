@@ -296,17 +296,11 @@ class TitleState extends MusicBeatState
 	            deleteCoolText();
 				ngSpr.visible = false;
 			case 7:
-				addMoreText('Lulu Art');
-				ngSpr.visible = true;
-			// credTextShit.text += '\nNewgrounds';
-
-			case 9:
-			deleteCoolText();
-				ngSpr.visible = false;
-			// credTextShit.visible = false;
-
-			// credTextShit.text = '';
-			// credTextShit.screenCenter();
+				addMoreText('Something');
+            case 9:
+			    addMoreText('hi');
+			case 10:
+	            deleteCoolText();
 			case 12:
 				deleteCoolText();
 			// credTextShit.visible = false;

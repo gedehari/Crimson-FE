@@ -112,6 +112,18 @@ class Character extends FNFSprite
 				animation.addByPrefix('singLEFT', 'crimsoncrips NOTE LEFT', 24, false);
 
 				playAnim('idle');
+				
+            case 'madcrimsoncrips':
+				// MADCRIMSONCRIPS ANIMATION LOADING CODE
+				tex = Paths.getSparrowAtlas('characters/MADCRIMSONCRIPS');
+				frames = tex;
+				animation.addByPrefix('idle', 'madcrimsoncrips idle dance', 24, true);
+				animation.addByPrefix('singUP', 'madcrimsoncrips NOTE UP', 24, false);
+				animation.addByPrefix('singRIGHT', 'madcrimsoncrips NOTE RIGHT', 24, false);
+				animation.addByPrefix('singDOWN', 'madcrimsoncrips NOTE DOWN', 24, false);
+				animation.addByPrefix('singLEFT', 'madcrimsoncrips NOTE LEFT', 24, false);
+
+				playAnim('idle');
 			default:
 				// set up animations if they aren't already
 
