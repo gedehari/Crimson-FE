@@ -3449,7 +3449,7 @@
     ],
     "bpm": 140,
     "sections": 1,
-    "needsVoices": false,
+    "needsVoices": true,
     "player1": "bf",
     "player2": "madcrimsoncrips",
     "speed": 3.1,
