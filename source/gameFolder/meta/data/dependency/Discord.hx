@@ -32,7 +32,7 @@ class Discord
 		DiscordRpc.presence({
 			details: "",
 			state: null,
-			largeImageKey: 'Crimson Mod',
+			largeImageKey: 'VS Crimson Mod',
 			largeImageText: "Forever Engine"
 		});
 	}
@@ -60,7 +60,7 @@ class Discord
 			details: details,
 			state: state,
 			largeImageKey: 'iconog',
-			largeImageText: "Crimson Mod",
+			largeImageText: "VS Crimson Mod",
 			smallImageKey: smallImageKey,
 			// Obtained times are in milliseconds so they are divided so Discord can use it
 			startTimestamp: Std.int(startTimestamp / 1000),
