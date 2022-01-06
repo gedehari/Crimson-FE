@@ -140,6 +140,9 @@ class Stage extends FlxTypedGroup<FlxBasic>
 			case "crimsoncrips":
 				dad.x += -100;	
 				dad.y += -100;
+			case "madcrimsoncrips":
+				dad.x += -100;	
+				dad.y += -100;
 			case "monster":
 				dad.y += 100;
 			case 'monster-christmas':
