@@ -87,7 +87,7 @@ class Main extends Sprite
 	**/
 	public static var gameWeeks:Array<Dynamic> = [
 		[
-			['the spread','crimsons wrath','desperate blood'],
+			['the spread','crimsons wrath','ectossence'],
 			['crimsoncrips', 'crimsoncrips', 'madcrimsoncrips'],
 			[FlxColor.fromRGB(129, 100, 223)],
 			'vs. Crimson Crips'

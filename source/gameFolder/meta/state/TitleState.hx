@@ -138,7 +138,7 @@ class TitleState extends MusicBeatState
 
 		credTextShit.visible = false;
 
-		ngSpr = new FlxSprite(0, FlxG.height * 0.38).loadGraphic(Paths.image('menus/base/title/newgrounds_logo'));
+		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('menus/base/title/newgrounds_logo'));
 		add(ngSpr);
 		ngSpr.visible = false;
 		ngSpr.setGraphicSize(Std.int(ngSpr.width * 0.5));
@@ -286,21 +286,40 @@ class TitleState extends MusicBeatState
 		FlxG.log.add(curBeat);
 
 		switch (curBeat)
-		{
+{
+			case 1:
+				createCoolText(['ninjamuffin', 'phantomArcade', 'kawaisprite', 'evilsker']);
 
+			// credTextShit.visible = true;
 			case 3:
-				addMoreText('Crimson Mod');
+				addMoreText('present');
+			// credTextShit.text += '\npresent...';
+			// credTextShit.addText();
+			case 4:
+				deleteCoolText();
+			// credTextShit.visible = false;
+			// credTextShit.text = 'In association \nwith';
+			// credTextShit.screenCenter();
 			case 5:
-			    addMoreText('real');
-			case 6:
-	            deleteCoolText();
-				ngSpr.visible = false;
+				createCoolText(['In association', 'with']);
 			case 7:
-				addMoreText('Something');
-            case 9:
-			    addMoreText('hi');
-			case 10:
-	            deleteCoolText();
+				addMoreText('newgrounds');
+				ngSpr.visible = true;
+			// credTextShit.text += '\nNewgrounds';
+
+			case 8:
+				deleteCoolText();
+				ngSpr.visible = false;
+			// credTextShit.visible = false;
+
+			// credTextShit.text = 'Shoutouts Tom Fulp';
+			// credTextShit.screenCenter();
+			case 9:
+				createCoolText([curWacky[0]]);
+			// credTextShit.visible = true;
+			case 11:
+				addMoreText(curWacky[1]);
+			// credTextShit.text += '\nlmao';
 			case 12:
 				deleteCoolText();
 			// credTextShit.visible = false;
